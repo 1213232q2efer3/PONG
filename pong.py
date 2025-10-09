@@ -637,7 +637,7 @@ class SynthwaveGameWidget(QWidget):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
         
-        # Отрисовыввает синтвейв фон
+        # Отрисовывает синтвейв фон
         self.draw_advanced_background(painter)
         
         # Горы
@@ -899,3 +899,4 @@ if __name__ == '__main__':
     menu_window.show()
 
     sys.exit(app.exec_())
+
