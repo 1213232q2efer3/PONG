@@ -171,7 +171,7 @@ class SynthwaveCaptchaDialog(QDialog):
         self.submit_button = QPushButton("🚀 VERIFY")
         self.refresh_button = QPushButton("🔄 REFRESH")
         
-        # Добавляем свечение к кнопкам
+        # Добавляет свечение к кнопкам
         glow_effect = GlowEffect(QColor(255, 0, 255))
         self.submit_button.setGraphicsEffect(glow_effect)
         
@@ -192,7 +192,7 @@ class SynthwaveCaptchaDialog(QDialog):
         self.particle_timer.start(50)
 
     def update_particles(self):
-        # Добавляем частицы по краям диалога
+        # Добавляет частицы по краям текста
         if random.random() > 0.7:
             side = random.choice(['top', 'bottom', 'left', 'right'])
             if side == 'top':
@@ -388,7 +388,7 @@ class SynthwaveLoginWindow(QMainWindow):
         buttons_layout.addWidget(self.register_button)
         layout.addLayout(buttons_layout)
         
-        # Анимированный статус бар
+        # Анимированный статус системы
         self.status_label = AnimatedLabel(">>> SYSTEM READY <<<")
         self.status_label.setAlignment(Qt.AlignCenter)
         self.status_label.setFont(QFont("Courier New", 10))
@@ -404,7 +404,7 @@ class SynthwaveLoginWindow(QMainWindow):
         self.particle_timer.start(30)
 
     def update_particles(self):
-        # Создаем частицы по краям окна
+        # Создает частицы по краям окна
         if random.random() > 0.8:
             x = random.choice([0, 600])
             y = random.randint(0, 550)
@@ -426,13 +426,13 @@ class SynthwaveLoginWindow(QMainWindow):
 
         if username in self.users and self.users[username] == password:
             self.status_label.setText(">>> ACCESS GRANTED <<<")
-            # Эффект успешного входа
+            # Вывод успешного входа
             for _ in range(100):
                 self.particles.add_particle(300, 275, QColor(0, 255, 0), 80)
             QTimer.singleShot(1000, self.start_game)
         else:
             self.status_label.setText(">>> ACCESS DENIED - CAPTCHA REQUIRED <<<")
-            # Эффект ошибки
+            # Вывод ошибки
             for _ in range(50):
                 self.particles.add_particle(300, 275, QColor(255, 0, 0), 60)
             captcha_dialog = SynthwaveCaptchaDialog(self)
@@ -446,7 +446,7 @@ class SynthwaveLoginWindow(QMainWindow):
             if username not in self.users:
                 self.users[username] = password
                 self.status_label.setText(">>> USER REGISTERED <<<")
-                # Эффект регистрации
+                # Вывод регистрации
                 for _ in range(80):
                     self.particles.add_particle(300, 275, QColor(255, 255, 0), 70)
                 QMessageBox.information(self, "✅ SUCCESS", "🎉 USER REGISTRATION COMPLETE!")
@@ -508,7 +508,7 @@ class SynthwaveMenuWindow(QMainWindow):
         layout.setContentsMargins(60, 60, 60, 60)
         layout.setAlignment(Qt.AlignCenter)
 
-        # Главный заголовок в стиле терминала
+        # Главный заголовок в стиле синтвейв
         title_label = AnimatedLabel("""
 ╔══════════════════════════════════╗
 ║       🌌 SYNTHWAVE PONG 2084     ║
@@ -526,7 +526,7 @@ class SynthwaveMenuWindow(QMainWindow):
         exit_button = QPushButton("🚪 EXIT TERMINAL")
         exit_button.clicked.connect(self.close)
         
-        # Добавляем свечение к кнопкам
+        # Добавляет свечение к кнопкам
         start_glow = GlowEffect(QColor(0, 255, 255))
         start_button.setGraphicsEffect(start_glow)
         
@@ -536,7 +536,7 @@ class SynthwaveMenuWindow(QMainWindow):
         layout.addWidget(start_button)
         layout.addWidget(exit_button)
 
-        # Нижний статус
+        # Статус системы
         footer_label = AnimatedLabel(">>> SYSTEM ONLINE <<<")
         footer_label.setAlignment(Qt.AlignCenter)
         footer_label.setFont(QFont("Courier New", 12))
@@ -561,7 +561,7 @@ class SynthwaveMenuWindow(QMainWindow):
         self.blink_animation.start()
 
     def update_particles(self):
-        # Создаем частицы по всему экрану
+        # Создает частицы по всему экрану
         if random.random() > 0.6:
             x = random.randint(0, 700)
             y = random.randint(0, 600)
@@ -637,7 +637,7 @@ class SynthwaveGameWidget(QWidget):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
         
-        # Рисуем сложный синтвейв фон
+        # Отрисовыввает синтвейв фон
         self.draw_advanced_background(painter)
         
         # Горы
@@ -662,7 +662,7 @@ class SynthwaveGameWidget(QWidget):
         self.particles.draw(painter)
 
     def draw_advanced_background(self, painter):
-        # Основной градиент
+        # Градиент
         gradient = QLinearGradient(0, 0, 0, 600)
         gradient.setColorAt(0, QColor(10, 0, 30))
         gradient.setColorAt(0.3, QColor(30, 0, 50))
@@ -779,7 +779,7 @@ class SynthwaveGameWidget(QWidget):
         painter.drawText(550, 50, f"P2: {self._score2}")
 
     def update_game(self):
-        # Обновляем анимации
+        # Обновляет анимации
         self.horizontal_lines = [(pos, (alpha + random.randint(-3, 3)) % 150) 
                                for pos, alpha in self.horizontal_lines]
         
@@ -788,7 +788,7 @@ class SynthwaveGameWidget(QWidget):
         if len(self.trail_positions) > 10:
             self.trail_positions.pop()
         
-        # Добавляем частицы при движении
+        # Добавляет частицы при движении
         if random.random() > 0.5:
             self.particles.add_particle(self._ball_x + 5, self._ball_y + 5, 
                                       random.choice([QColor(255, 0, 255), QColor(0, 255, 255)]), 20)
@@ -867,7 +867,7 @@ class SynthwaveGameWidget(QWidget):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     
-    # Устанавливаем высококачественный стиль
+    # Устанавливает стиль всей игры
     app.setStyle('Fusion')
     
     palette = QPalette()
@@ -897,4 +897,5 @@ if __name__ == '__main__':
     
     menu_window = SynthwaveMenuWindow()
     menu_window.show()
+
     sys.exit(app.exec_())
